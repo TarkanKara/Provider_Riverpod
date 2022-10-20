@@ -3,25 +3,42 @@
 ## ProxyProvider() kullanıldı.
 
 > 
-iç içe provider kullanımı
-MyFirstClass adında bir sınıf oluşturalım
-ikinci oluşturduğumuz sınıf bir önceki sınıftan nesne alsın
+iç içe provider kullanımı;
+>>
+MyFirstClass adında bir sınıf oluşturalım..
+>>
+ikinci oluşturduğumuz sınıf bir önceki sınıftan nesne alsın.
+>>
 proxyProvider ile birinci sınıf üzerinden ikinci sınıfa erişelim
+>>
 ilk provider MyFirstClass() nı döndürsün.
+>>
 provider ile proxyProvider ı sarmalama işlemi yaptık
+>>
 ilk provider MyFirstClass() nesnesini proxyProvider a verdi.
-proxyProvider ise MySecondClass() nesnesini bizlee verecektir.
+>>
+proxyProvider ise MySecondClass() nesnesini bizlere verecektir.
+>>
 datayı ağac üzerinden dolaştırmak için contex yapısına ihtiyacamız var
+>>
 widget tree üzerinden yukarı doğru datayı taşımak için kullanıyoruz
+>>
 contex sayesinde diğer widgetların içerisine giderek üzerinde taşıdıkları veriye erişim sağlıyoruz.
+>>
 Ve bu şekilde veri üzerinde manipülasyon işlemleri yapabiliyoruz.
-Center widget nı Builder ile sarmalıyoruz.
+>>
+Center widget nı Builder ile sarmalıyoruz. (providara erişmek için)
+>>
 Text içersinde provider ulaşmak isteyince tipini belirtmeyi unutma
-MySecondClass ile ikinci sınıf nesnesine erişim sağlıyoruz.
+>>
+MySecondClass tipi belirleyerek, ikinci sınıf nesnesine erişim sağlıyoruz.
+>>
 yukarıdaki proxyProvider ile birinci sınıfa geçiş sağlayarak
+>>
 myValue = "ilk sınıf"; değerini text içerisinde yazdıracak
+>>
 
->
+
 ```
 class MyFirstClass {
   final String myValue = "ilk sınıf";
