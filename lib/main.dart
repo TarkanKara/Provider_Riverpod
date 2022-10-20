@@ -5,7 +5,6 @@ void main() => runApp(const MyApp());
 
 //iç içe provider kullanımı
 // MyFirstClass adında bir sınıf oluşturalım
-//
 class MyFirstClass {
   final String myValue = "ilk sınıf";
 }
@@ -37,7 +36,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //ilk provider MyFirstClass() nı döndürsün.
-    //
+    //provider ile proxyProvider ı sarmalama işlemi yaptık
+    // ilk provider MyFirstClass() nesnesini proxyProvider a verdi.
+    // proxyProvider ise MySecondClass() nesnesini bizlee verecektir.
     return Provider(
       create: (context) => MyFirstClass(),
       child: ProxyProvider<MyFirstClass, MySecondClass>(
@@ -49,10 +50,19 @@ class HomePage extends StatelessWidget {
             title: const Text("Provider"),
             centerTitle: true,
           ),
+          //datayı ağac üzerinden dolaştırmak için contex yapısına ihtiyacamız var
+          //widget tree üzerinden yukarı doğru datayı taşımak için kullanıyoruz
+          //contex sayesinde diğer widgetların içerisine giderek üzerinde taşıdıkları veriye erişim sağlıyoruz.
+          //Ve bu şekilde veri üzerinde manipülasyon işlemleri yapabiliyoruz.
+          //Center widget nı Builder ile sarmalıyoruz.
           body: Builder(
             builder: (context) {
               return Center(
                 child: Text(
+                  //provider ulaşmak isteyince tipini belirtmeyi unutma
+                  //<MySecondClass> ile ikinci sınıf nesnesine erişim sağlıyoruz.
+                  //yukarıdaki proxyProvider ile birinci sınıfa geçiş ağlayarak
+                  //myValue = "ilk sınıf"; değerini text içerisinde yazdıracak
                   Provider.of<MySecondClass>(context).myFirstClass.myValue,
                   style: const TextStyle(
                     fontSize: 25,
