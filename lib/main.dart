@@ -30,12 +30,16 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //Buraya dikkat
+    //responsee değişkenin geriye dönüş tipi AsyncValue<String>
+    // Bu değişkenin text widgette kullanımı map ile olmalıdır.
     final responsee = ref.watch(futureProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riverpod - FetureProvider'),
       ),
       body: Center(
+        //responsee değişkenin map ile kullanımı
         child: responsee.map(
             data: ((data) => Text(data.value)),
             error: ((err) => Text(err.error.toString())),
