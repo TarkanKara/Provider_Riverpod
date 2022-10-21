@@ -18,6 +18,7 @@ ProviderScope Kullanıyoruz. void main() => runApp(const ProviderScope(child: My
 >>
 main.dart dosyası içerisinde futureProvider oluşturuyoruz.
 >>
+>>
 '''
 final httpData = Provider((ref) => WebServis());
 final futureProvider = FutureProvider<String>((ref) async {
@@ -25,6 +26,7 @@ final futureProvider = FutureProvider<String>((ref) async {
   return http.httpDatta();
 });
 '''
+>>
 >>
 Oluştural provider ı ilgili widgette kullanalım. (Consumer Widget altına yazalım)
 >>
